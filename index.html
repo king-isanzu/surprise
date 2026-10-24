@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#190b24">
+<title>A Little Surprise For You 💖</title>
+<style>
+:root{--pink:#ff5c93;--rose:#ffb4cb;--cream:#fff4f7;--night:#190b24}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--cream);font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at top,#57234e 0,#24112f 45%,#100a19 100%);overflow-x:hidden}
+button,input{font:inherit}.stars,.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.petal{position:absolute;top:-40px;animation:fall linear forwards;opacity:.9}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.15}}
+.wrap{position:relative;z-index:1;max-width:850px;margin:auto;padding:22px 16px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.brand{font-weight:800;letter-spacing:.4px}.counter{font-size:.85rem;color:#ffd7e5;background:#ffffff12;padding:8px 12px;border:1px solid #ffffff20;border-radius:99px}
+.progress{height:5px;background:#ffffff20;border-radius:99px;overflow:hidden;margin-bottom:22px}.progress span{display:block;height:100%;width:10%;background:linear-gradient(90deg,#ff6b9d,#ffd0df);transition:width .4s}
+.page{display:none;animation:appear .55s ease both}.page.active{display:block}@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.card{background:linear-gradient(145deg,#ffffff12,#ffffff07);border:1px solid #ffffff22;border-radius:28px;padding:clamp(22px,5vw,42px);box-shadow:0 24px 80px #0003;backdrop-filter:blur(12px)}
+.eyebrow{text-transform:uppercase;letter-spacing:2.5px;color:#ffb7cf;font-size:.72rem;font-weight:800}h1,h2{line-height:1.12;margin:12px 0 16px}h1{font-size:clamp(2.1rem,7vw,4.3rem)}h2{font-size:clamp(1.7rem,5vw,2.7rem)}p{line-height:1.8;color:#f8e9f0}.muted{color:#d9c5d5;font-size:.94rem}.hero{text-align:center;padding-top:clamp(25px,8vh,70px)}.heart{font-size:clamp(5rem,22vw,9rem);display:inline-block;filter:drop-shadow(0 0 25px #ff4f8b);animation:beat 1.2s infinite}@keyframes beat{50%{transform:scale(1.13)}}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.photo-grid img,.wide-photo{width:100%;height:190px;object-fit:cover;border-radius:18px;border:1px solid #ffffff30}.photo-grid img:nth-child(2){transform:translateY(12px)}.wide-photo{height:250px;margin:12px 0}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.btn{border:0;border-radius:999px;padding:13px 22px;font-weight:800;cursor:pointer;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(135deg,#ff6b9d,#ff9cba);color:#321024;box-shadow:0 8px 25px #ff5c9340}.secondary{background:#ffffff12;border:1px solid #ffffff35;color:#fff}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:22px 0}.choice{background:#ffffff0d;border:1px solid #ffffff28;color:#fff;padding:17px 12px;border-radius:18px;cursor:pointer;text-align:left}.choice.selected{border-color:#ff8db4;background:#ff5c9325;box-shadow:0 0 0 2px #ff5c9330}.choice span{display:block;font-size:1.7rem;margin-bottom:7px}.choice small{color:#e7cbd8}
+label{display:block;margin:16px 0 7px;color:#ffe0eb;font-weight:700}input[type="date"],input[type="time"],input[type="text"]{width:100%;padding:13px;border-radius:12px;border:1px solid #ffffff35;background:#ffffff10;color:white}input::-webkit-calendar-picker-indicator{filter:invert(1)}
+.quote{font-size:1.2rem;font-style:italic;border-left:3px solid #ff8db4;padding-left:18px;color:#ffe4ee}.center{text-align:center}.hidden{display:none!important}.big-count{font-size:clamp(4rem,20vw,8rem);font-weight:900;color:#ff9cba;text-shadow:0 0 35px #ff4388;line-height:1.2}.surprise{min-height:75vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.final-message{font-size:clamp(2rem,8vw,4.5rem);font-weight:900;background:linear-gradient(90deg,#fff,#ff91b7,#fff);background-clip:text;color:transparent}.footer{text-align:center;color:#bda6bc;font-size:.78rem;margin-top:22px}.no-btn{position:relative}.toast{margin-top:15px;color:#ffd6e4;min-height:24px}
+@media(max-width:520px){.photo-grid{gap:6px}.photo-grid img{height:125px;border-radius:12px}.card{border-radius:22px}.top{align-items:flex-start}.wide-photo{height:200px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="petals" id="petals"></div>
+<div class="wrap">
+  <header class="top"><div class="brand">♡ A LITTLE LOVE NOTE</div><div class="counter" id="counter">Ukurasa 1 / 10</div></header>
+  <div class="progress"><span id="progress"></span></div>
+
+  <section class="page active" data-page="1"><div class="card hero">
+    <div class="eyebrow">Ujumbe mdogo kutoka moyoni</div><div class="heart">💗</div>
+    <h1>Hey, you deserve to feel loved.</h1>
+    <p>Najua kuna siku moyo unachoka na dunia inaonekana nzito. Lakini nataka ukumbuke jambo moja: huhitaji kuwa na nguvu kila dakika. Una haki ya kupumzika, kutabasamu tena, na kupokea upendo.</p>
+    <button class="btn primary" onclick="go(2)">Fungua ujumbe wako ✨</button>
+  </div></section>
+
+  <section class="page" data-page="2"><div class="card">
+    <div class="eyebrow">01 · Kumbuka thamani yako</div><h2>Huzuni yako haifuti uzuri wako. 🌷</h2>
+    <p>Hata kama leo hujisikii vizuri, bado wewe ni mtu wa thamani. Huhitaji kujifanya uko sawa ili uonekane imara. Chukua muda wako, pumua taratibu, na ujitendee kwa upole uleule unaowatendea wengine.</p>
+    <div class="photo-grid"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700&auto=format&fit=crop" alt="Maua ya rangi kwenye bustani"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=700&auto=format&fit=crop" alt="Moyo wa mapambo"><img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=700&auto=format&fit=crop" alt="Maua mazuri"></div>
+    <p class="quote">“Hata usiku mrefu una mwisho, na asubuhi huja tena.”</p><div class="actions"><button class="btn secondary" onclick="go(1)">← Nyuma</button><button class="btn primary" onclick="go(3)">Endelea 💞</button></div>
+  </div></section>
+
+  <section class="page" data-page="3"><div class="card"><div class="eyebrow">02 · Hauko peke yako</div><h2>Ningependa kukuona ukitabasamu tena. 🫶</h2>
+    <p>Sikulazimishi kuficha hisia zako wala kuwa na furaha kwa lazima. Nataka tu ujue kuwa haupaswi kubeba kila kitu peke yako. Ukihitaji mtu wa kusikiliza, kuzungumza naye au kukaa naye kimya, hilo pia ni sawa.</p>
+    <img class="wide-photo" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&auto=format&fit=crop" alt="Watu wawili wakishirikiana kwa upendo">
+    <p>Naomba ujipatie nafasi ya amani, kicheko kidogo, na mambo yanayoufanya moyo wako ujisikie mwepesi.</p><div class="actions"><button class="btn secondary" onclick="go(2)">← Nyuma</button><button class="btn primary" onclick="go(4)">Ujumbe mwingine →</button></div>
+  </div></section>
+
+  <section class="page" data-page="4"><div class="card"><div class="eyebrow">03 · Tafadhali usikate tamaa</div><h2>Hatua ndogo bado ni hatua. 🌅</h2>
+    <p>Huhitaji kutatua kila kitu leo. Jaribu kupumzika, kunywa maji, kusikiliza wimbo unaoupenda au kuongea na mtu unayemwamini. Mambo yanaweza kubadilika taratibu. Natumaini siku zijazo zitakuletea sababu nyingi za kutabasamu.</p>
+    <p class="quote">“Usijipime kwa siku yako ngumu zaidi. Wewe ni zaidi ya wakati unaopitia.”</p><div class="actions"><button class="btn secondary" onclick="go(3)">← Nyuma</button><button class="btn primary" onclick="go(5)">Twende kwenye mpango wetu 🌸</button></div>
+  </div></section>
+
+  <section class="page" data-page="5"><div class="card"><div class="eyebrow">04 · Swali la upole</div><h2>Je, utanipa nafasi ya kukualika tutoke? 💌</h2>
+    <p>Ningependa kutumia muda mzuri pamoja nawe—bila presha, kwa mazungumzo mazuri na tabasamu. Chagua unavyojisikia; jibu lako linaheshimiwa.</p>
+    <div class="actions"><button class="btn primary" onclick="go(6)">Ndiyo, naomba tuone mipango 💖</button><button class="btn secondary" onclick="go(6)">Ningependa kufikiria kwanza 🌿</button></div>
+    <p class="muted">Hakuna haraka. Unaweza kuchagua siku nyingine au kusema hapana kwa uhuru.</p>
+    <div class="actions"><button class="btn secondary" onclick="go(4)">← Nyuma</button></div>
+  </div></section>
+
+  <section class="page" data-page="6"><div class="card"><div class="eyebrow">05 · Muda wako ni muhimu</div><h2>Ni lini utakuwa free? 🗓️</h2><p>Chagua siku na muda unaokufaa. Haya ni mapendekezo tu—unaweza kuacha wazi kama bado hujui.</p>
+    <label for="date">Siku unayopendelea</label><input type="date" id="date">
+    <label for="time">Muda unaokufaa</label><input type="time" id="time">
+    <label for="otherTime">Au andika muda mwingine (hiari)</label><input type="text" id="otherTime" placeholder="Mf. nitakujulisha baadaye">
+    <div class="actions"><button class="btn secondary" onclick="go(5)">← Nyuma</button><button class="btn primary" onclick="go(7)">Chagua shughuli →</button></div>
+  </div></section>
+
+  <section class="page" data-page="7"><div class="card"><div class="eyebrow">06 · Tufanye nini?</div><h2>Ungependa tufanye nini? ✨</h2><p>Chagua kile kitakachokufurahisha zaidi. Unaweza kuchagua zaidi ya kimoja.</p>
+    <div class="choices" id="activities">
+      <button class="choice" data-value="Dinner 🍽️" onclick="toggleChoice(this)"><span>🍽️</span>Chakula kizuri<small> Mazungumzo na dinner</small></button>
+      <button class="choice" data-value="Walk 🌳" onclick="toggleChoice(this)"><span>🌳</span>Matembezi<small> Hewa safi na amani</small></button>
+      <button class="choice" data-value="Coffee ☕" onclick="toggleChoice(this)"><span>☕</span>Kahawa/juice<small> Mazungumzo ya polepole</small></button>
+      <button class="choice" data-value="Movie 🎬" onclick="toggleChoice(this)"><span>🎬</span>Kuangalia movie<small> Burudani na vicheko</small></button>
+      <button class="choice" data-value="Surprise 🎁" onclick="toggleChoice(this)"><span>🎁</span>Surprise ndogo<small> Niache nichague</small></button>
+      <button class="choice" data-value="Quiet time 💗" onclick="toggleChoice(this)"><span>💗</span>Muda wa utulivu<small> Bila kelele wala presha</small></button>
+    </div><div class="actions"><button class="btn secondary" onclick="go(6)">← Nyuma</button><button class="btn primary" onclick="go(8)">Chagua eneo →</button></div>
+  </div></section>
+
+  <section class="page" data-page="8"><div class="card"><div class="eyebrow">07 · Eneo lako la ndoto</div><h2>Ungependa kwenda wapi? 🌍</h2><p>Chagua aina ya eneo unalolipenda. Tutapanga pamoja na kuthibitisha sehemu halisi kabla ya kutoka.</p>
+    <div class="choices" id="places">
+      <button class="choice" data-value="Garden 🌺" onclick="toggleChoice(this)"><span>🌺</span>Bustani nzuri<small>Maua na utulivu</small></button>
+      <button class="choice" data-value="Restaurant 🍰" onclick="toggleChoice(this)"><span>🍰</span>Restaurant/café<small>Chakula na mazungumzo</small></button>
+      <button class="choice" data-value="Beach 🌊" onclick="toggleChoice(this)"><span>🌊</span>Ufukweni<small>Upepo na machweo</small></button>
+      <button class="choice" data-value="Scenic spot 🌇" onclick="toggleChoice(this)"><span>🌇</span>Sehemu ya mandhari<small>Picha na sunset</small></button>
+      <button class="choice" data-value="Your choice 💫" onclick="toggleChoice(this)"><span>💫</span>Chagua wewe<small>Niko tayari kusikia wazo lako</small></button>
+    </div><label for="placeNote">Eneo maalum (hiari)</label><input id="placeNote" type="text" placeholder="Andika eneo kama unalo akilini">
+    <div class="actions"><button class="btn secondary" onclick="go(7)">← Nyuma</button><button class="btn primary" onclick="showPlan()">Hifadhi chaguo langu 💌</button></div><p class="muted" id="planSummary"></p>
+  </div></section>
+
+  <section class="page" data-page="9"><div class="card center"><div class="eyebrow">08 · Kabla ya surprise</div><h2>Naomba nikualike kwa moyo wote? 💐</h2><p>Ningefurahi kupata nafasi ya kukufanya utabasamu, lakini sitaki ujisikie kulazimishwa. Chagua kwa uhuru kabisa.</p>
+    <div class="heart">💝</div><div class="actions" style="justify-content:center"><button class="btn primary" onclick="go(10)">AGREE 💖</button><button class="btn secondary no-btn" id="disagree" onclick="noThanks(event)">DISAGREE</button></div>
+    <div class="toast" id="noToast" aria-live="polite"></div><p class="muted">Kitufe cha DISAGREE kinabaki kinachoweza kuchaguliwa—jibu lako lolote litaheshimiwa.</p><div class="actions" style="justify-content:center"><button class="btn secondary" onclick="go(8)">← Badili mipango</button></div>
+  </div></section>
+
+  <section class="page" data-page="10"><div class="card surprise"><div class="eyebrow">09 · Your little surprise</div><div class="big-count" id="count">3</div><h2 id="countTitle">Kuna ujumbe mmoja kwa ajili yako…</h2>
+    <div id="final" class="hidden"><div class="heart">❤️</div><div class="final-message">I Love You</div><h2>Naomba moyo wako upate amani na furaha. 💖</h2>
+      <img class="wide-photo" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1200&auto=format&fit=crop" alt="Mapambo ya moyo yenye hisia za upendo">
+      <p>Asante kwa kuwa wewe. Natamani uwe na siku zenye mwanga, watu wanaokuthamini, na sababu nyingi za kucheka. Ningependa kukujua zaidi na kutengeneza kumbukumbu nzuri pamoja nawe—kwa heshima, ukweli na bila presha.</p>
+      <p class="quote">“You deserve love that feels safe, kind, honest, and peaceful.”</p>
+      <div class="actions" style="justify-content:center"><button class="btn primary" onclick="sendPlan()">Tuma chaguo langu 💌</button><button class="btn secondary" onclick="restart()">Angalia tena ↻</button></div>
+      <p class="muted" id="sendNote">Kitufe cha kutuma kitafungua ujumbe wa kushare kwenye simu yako kama kinapatikana.</p>
+    </div>
+  </div></section>
+  <div class="footer">Made with care ♡ · Picha zinaweza kuhitaji intaneti ili kuonekana.</div>
+</div>
+<script>
+let current=1, selectedActivities=new Set(), selectedPlaces=new Set(), countdownStarted=false;
+function go(n){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',Number(p.dataset.page)===n));current=n;document.getElementById('counter').textContent=`Ukurasa ${n} / 10`;document.getElementById('progress').style.width=(n*10)+'%';window.scrollTo({top:0,behavior:'smooth'});if(n===10&&!countdownStarted)startCountdown();}
+function toggleChoice(btn){const group=btn.parentElement.id;const set=group==='activities'?selectedActivities:selectedPlaces;const value=btn.dataset.value;if(set.has(value)){set.delete(value);btn.classList.remove('selected')}else{set.add(value);btn.classList.add('selected')}flowerBurst(btn)}
+function flowerBurst(el){const r=el.getBoundingClientRect();for(let i=0;i<9;i++){const f=document.createElement('span');f.className='petal';f.textContent=['🌸','🌹','💮','✨','💗'][Math.floor(Math.random()*5)];f.style.left=(r.left+Math.random()*r.width)+'px';f.style.top=(r.top+window.scrollY)+'px';f.style.animationDuration=(2+Math.random()*2)+'s';document.getElementById('petals').appendChild(f);setTimeout(()=>f.remove(),4200)}}
+function showPlan(){const d=document.getElementById('date').value,t=document.getElementById('time').value,ot=document.getElementById('otherTime').value,pl=document.getElementById('placeNote').value;const summary=[d?`Siku: ${d}`:'Siku: bado haijaamuliwa',t?`Muda: ${t}`:'',ot?`Maelezo: ${ot}`:'',selectedActivities.size?'Shughuli: '+[...selectedActivities].join(', '):'',selectedPlaces.size?'Eneo: '+[...selectedPlaces].join(', '):'',pl?'Eneo maalum: '+pl:''].filter(Boolean).join(' · ');document.getElementById('planSummary').textContent=summary||'Bado hujachagua kitu—unaweza kuendelea na kuchagua baadaye.';go(9)}
+function startCountdown(){countdownStarted=true;let n=3;const c=document.getElementById('count'),title=document.getElementById('countTitle'),final=document.getElementById('final');c.textContent=n;const timer=setInterval(()=>{n--;if(n>0){c.textContent=n}else{clearInterval(timer);c.classList.add('hidden');title.classList.add('hidden');final.classList.remove('hidden');flowerRain()}},1000)}
+function flowerRain(){for(let i=0;i<45;i++){setTimeout(()=>{const f=document.createElement('span');f.className='petal';f.textContent=['🌹','🌸','💖','🌷','✨'][Math.floor(Math.random()*5)];f.style.left=Math.random()*100+'vw';f.style.animationDuration=(3+Math.random()*4)+'s';f.style.fontSize=(18+Math.random()*20)+'px';document.getElementById('petals').appendChild(f);setTimeout(()=>f.remove(),7500)},i*90)}}
+function noThanks(e){document.getElementById('noToast').textContent='Asante kwa kuwa mkweli 💗. Unaweza kuchagua “hapana” bila presha yoyote.';flowerBurst(e.currentTarget)}
+function sendPlan(){const details={date:document.getElementById('date').value||'Bado sijachagua',time:document.getElementById('time').value||'Bado sijachagua',other:document.getElementById('otherTime').value,activities:[...selectedActivities].join(', ')||'Bado sijachagua',places:[...selectedPlaces].join(', ')||'Bado sijachagua',placeNote:document.getElementById('placeNote').value||''};const msg=`My little date plan 💌\nSiku: ${details.date}\nMuda: ${details.time} ${details.other}\nShughuli: ${details.activities}\nEneo: ${details.places}\nMaelezo: ${details.placeNote}`;if(navigator.share){navigator.share({title:'My little date plan',text:msg}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(msg).then(()=>document.getElementById('sendNote').textContent='Chaguo limekopiwa. Bandika kwenye WhatsApp au ujumbe.').catch(()=>document.getElementById('sendNote').textContent=msg)}else{document.getElementById('sendNote').textContent=msg}}
+function restart(){countdownStarted=false;document.getElementById('count').classList.remove('hidden');document.getElementById('countTitle').classList.remove('hidden');document.getElementById('final').classList.add('hidden');go(1)}
+setInterval(()=>{if(Math.random()<.55){const f=document.createElement('span');f.className='petal';f.textContent=['💗','✨','🌸'][Math.floor(Math.random()*3)];f.style.left=Math.random()*100+'vw';f.style.animationDuration=(5+Math.random()*5)+'s';document.getElementById('petals').appendChild(f);setTimeout(()=>f.remove(),10500)}},900);
+</script>
+</body>
+</html>
